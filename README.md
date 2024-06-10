@@ -1,1 +1,1 @@
-# Summer-2024-Research
+# Summer 2024 Research
