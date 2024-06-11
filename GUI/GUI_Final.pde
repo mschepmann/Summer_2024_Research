@@ -121,12 +121,13 @@ void pressbutton() {
       var1.submit();
       var2.submit();
       var3.submit();
+      var4.submit();
   }
 }
 
 // This is an object which is automatically ran when a change to a controller occurs; in this case, 
 // when the textfields have their info submitted, the inputs (as integers) are stored as the variables 
-// amp, mod, and frq
+// amp, mod, frq, and pat
 void controlEvent(ControlEvent theEvent) {
   if (theEvent.isAssignableFrom(Textfield.class)) {
     if (theEvent.getName().equals("Amp. Input")) {
@@ -143,6 +144,11 @@ void controlEvent(ControlEvent theEvent) {
       val3 = theEvent.getStringValue();
       mod=(int(val3));
       println(mod);
+    }
+    else if (theEvent.getName().equals("Pat. Input")) {
+      val4 = theEvent.getStringValue();
+      pat=(int(val4));
+      println(pat);
     }
   }
 }
@@ -164,6 +170,10 @@ void sendInputsToMax() {
   OscMessage modu = new OscMessage("mod");
   modu.add(mod);
   osc.send(modu,myIp);
+  
+  OscMessage patt = new OscMessage("pat");
+  patt.add(pat);
+  osc.send(patt,myIp);
 }
 
 void draw() {
