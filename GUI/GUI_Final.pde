@@ -9,15 +9,18 @@ Button button;
 Textfield var1;
 Textfield var2;
 Textfield var3;
+Textfield var4;
 
 // Initialize Variables
 String val1;
 String val2;
 String val3;
+String val4;
 
 float amp;
 int frq;
 int mod;
+int pat;
 int initialTime;
 int interval=300;
 int play;
@@ -33,11 +36,12 @@ void setup() {
 
   // Text which shows the labels and unit for what numbers you will be inputting
   textSize(20);
-  text("Amplitude",width*.1,(height/2)-80);
-  text("Frequency",width*.1,height/2);
-  text("Modulation",width*.1,(height/2)+80);
-  text("Hz",width*.35,height/2);
-  text("Hz",width*.35,(height/2)+80);
+  text("Amplitude",width*.1,(height/2)-115);
+  text("Frequency",width*.1,height/2-33);
+  text("Modulation",width*.1,(height/2)+50);
+  text("Hz",width*.35,height/2-33);
+  text("Hz",width*.35,(height/2)+50);
+  text("Pattern",width*.1,(height/2)+132);
   
   // Constructors for the class variables
   VariableInput = new ControlP5(this);
@@ -53,7 +57,7 @@ void setup() {
 
   // Creates textbox for Amplitude User Input
   var1=VariableInput.addTextfield("Amp. Input")
-     .setPosition(width*.25,(height/2)-99.5)
+     .setPosition(width*.25,(height/2)-135)
      .setSize(60,25)
      .setFont(sans)
      .setFocus(false)
@@ -66,7 +70,7 @@ void setup() {
      
   // Create textbox for Frequency User Input
   var2=VariableInput.addTextfield("Freq. Input")
-     .setPosition(width*.25,(height/2)-19.5)
+     .setPosition(width*.25,(height/2)-52.5)
      .setSize(60,25)
      .setFont(sans)
      .setFocus(false)
@@ -79,7 +83,7 @@ void setup() {
      
   // Creates textbox for Modulation User Input
   var3=VariableInput.addTextfield("Mod. Input")
-     .setPosition(width*.25,(height/2)+60.5)
+     .setPosition(width*.25,(height/2)+30)
      .setSize(60,25)
      .setFont(sans)
      .setFocus(false)
@@ -89,6 +93,18 @@ void setup() {
      .setInputFilter((ControlP5.INTEGER))
      .setAutoClear(false)
      ;
+     
+  var4=VariableInput.addTextfield("Pat. Input")
+      .setPosition(width*.25,(height/2)+112.5)
+      .setSize(60,25)
+      .setFont(sans)
+      .setFocus(false)
+      .setColor(255)
+      .setColorCursor(color(126,242,186))
+      .setCaptionLabel("")
+      .setInputFilter((ControlP5.INTEGER))
+      .setAutoClear(false)
+      ;
      
   // Creates button for which starts the experiment
   button=GoButton.addButton("GO!")
