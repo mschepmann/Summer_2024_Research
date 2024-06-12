@@ -45,7 +45,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 428.0, 565.0, 45.0, 22.0 ],
-					"text" : "dac~ 1"
+					"text" : "dac~ 4"
 				}
 
 			}
@@ -6897,7 +6897,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 494.0, 565.0, 45.0, 22.0 ],
-					"text" : "dac~ 2"
+					"text" : "dac~ 3"
 				}
 
 			}
@@ -8145,22 +8145,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-41", 0 ],
 					"source" : [ "obj-40", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-42", 0 ],
-					"order" : 1,
-					"source" : [ "obj-41", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-43", 0 ],
-					"order" : 0,
-					"source" : [ "obj-41", 0 ]
 				}
 
 			}
