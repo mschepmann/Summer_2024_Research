@@ -1,1 +1,13 @@
-# How to Setup the Syntacts, Amplifier, and Max Patch
+How to Setup the Syntacts, Amplifier, and Max Patch
+
+1. Connect the Amp to a computer through the silver USB-A/Lightning Cable
+2. Connect the audio jack wires to Front, Surround, and Center/Bass on the amplifier
+3. Connect the other end of the audio jack wires to the Syntacts board; Front --> 0/1, Surround --> 4/5, Center --> 2/3
+4. Connect the Syntacts board to a different computer USB port
+5. In the computer sound settings, navigate to More Sound Settings --> Speaker (USB Sound Device) --> Configure --> Select 7.1 Surround Sound
+6. Open up the GUI and Max Patch
+7. On the Max Patch, find a dac note and double click to open it
+8. Select the Driver as "ad_portaudio Windows Direct Sound"
+9. Select "None" for the Input Device
+10. Select "Speakers (USB Sound Device)" for the Output Device
+11. Check the Output so that each output is mapped to a different motor
