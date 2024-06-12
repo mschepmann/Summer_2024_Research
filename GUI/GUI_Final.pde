@@ -10,17 +10,20 @@ Textfield var1;
 Textfield var2;
 Textfield var3;
 Textfield var4;
+Textfield var5;
 
 // Initialize Variables
 String val1;
 String val2;
 String val3;
 String val4;
+String val5;
 
 float amp;
 int frq;
 int mod;
 int pat;
+int mode;
 int initialTime;
 int interval=300;
 int play;
@@ -37,11 +40,12 @@ void setup() {
   // Text which shows the labels and unit for what numbers you will be inputting
   textSize(20);
   text("Amplitude",width*.1,(height/2)-115);
-  text("Frequency",width*.1,height/2-33);
-  text("Modulation",width*.1,(height/2)+50);
-  text("Hz",width*.35,height/2-33);
-  text("Hz",width*.35,(height/2)+50);
-  text("Pattern",width*.1,(height/2)+132);
+  text("Frequency",width*.1,height/2-53);
+  text("Modulation",width*.1,(height/2)+10);
+  text("Hz",width*.35,height/2-53);
+  text("Hz",width*.35,(height/2)+10);
+  text("Pattern",width*.1,(height/2)+72);
+  text("Mode",width*.1,(height/2)+130.5);
   
   // Constructors for the class variables
   VariableInput = new ControlP5(this);
@@ -70,7 +74,7 @@ void setup() {
      
   // Create textbox for Frequency User Input
   var2=VariableInput.addTextfield("Freq. Input")
-     .setPosition(width*.25,(height/2)-52.5)
+     .setPosition(width*.25,(height/2)-72.5)
      .setSize(60,25)
      .setFont(sans)
      .setFocus(false)
@@ -83,7 +87,7 @@ void setup() {
      
   // Creates textbox for Modulation User Input
   var3=VariableInput.addTextfield("Mod. Input")
-     .setPosition(width*.25,(height/2)+30)
+     .setPosition(width*.25,(height/2)-10)
      .setSize(60,25)
      .setFont(sans)
      .setFocus(false)
@@ -95,6 +99,18 @@ void setup() {
      ;
      
   var4=VariableInput.addTextfield("Pat. Input")
+      .setPosition(width*.25,(height/2)+52.5)
+      .setSize(60,25)
+      .setFont(sans)
+      .setFocus(false)
+      .setColor(255)
+      .setColorCursor(color(126,242,186))
+      .setCaptionLabel("")
+      .setInputFilter((ControlP5.INTEGER))
+      .setAutoClear(false)
+      ;
+      
+  var5=VariableInput.addTextfield("Mode Input")
       .setPosition(width*.25,(height/2)+112.5)
       .setSize(60,25)
       .setFont(sans)
@@ -122,6 +138,7 @@ void pressbutton() {
       var2.submit();
       var3.submit();
       var4.submit();
+      var5.submit();
   }
 }
 
@@ -150,12 +167,12 @@ void controlEvent(ControlEvent theEvent) {
       pat=(int(val4));
       println(pat);
     }
+    else if (theEvent.getName().equals("Mode Input")) {
+      val5 = theEvent.getStringValue();
+      mode=(int(val5));
+      println(mode);
+    }
   }
-}
-
-void pressPlayMax() {
-  OscMessage go = new OscMessage("play");
-  osc.send(go,myIp);
 }
 
 void sendInputsToMax() {
@@ -174,6 +191,10 @@ void sendInputsToMax() {
   OscMessage patt = new OscMessage("pat");
   patt.add(pat);
   osc.send(patt,myIp);
+  
+  OscMessage hehe = new OscMessage("mode");
+  hehe.add(mode);
+  osc.send(hehe,myIp);
 }
 
 void draw() {
@@ -184,7 +205,6 @@ void draw() {
     button.setOn();
     pressbutton();
     sendInputsToMax();
-    pressPlayMax();
   }
 
   else {button.setOff();}
