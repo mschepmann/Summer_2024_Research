@@ -1,6 +1,7 @@
 import controlP5.*;
 import oscP5.*;
 import netP5.*;
+import processing.serial.*;
 
 // Constructors for ControlP5 variables
 ControlP5 VariableInput;
@@ -10,13 +11,14 @@ Textfield var1;
 Textfield var2;
 Textfield var3;
 Textfield var4;
+Serial myPort;
 
 // Initialize Variables
 String val1;
 String val2;
 String val3;
 String val4;
-
+static String val;
 float amp;
 int frq;
 int mod;
@@ -24,6 +26,7 @@ int pat;
 int initialTime;
 int interval=300;
 int play;
+int sensorVal = 0;
 
 OscP5 osc;
 NetAddress myIp;
@@ -113,6 +116,9 @@ void setup() {
      .setSize(120,65)
      .activateBy(ControlP5.RELEASE)
      ;
+     
+   String portName = "COM4";
+   myPort = new Serial(this,portName, 9600);
 }
 
 // Object which submits the textbox entries if the button is on
