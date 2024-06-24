@@ -11,14 +11,14 @@ Textfield var1;
 Textfield var2;
 Textfield var3;
 Textfield var4;
-Serial myPort;
+//Serial myPort;
 
 // Initialize Variables
 String val1;
 String val2;
 String val3;
 String val4;
-static String val;
+//static String val;
 float amp;
 int frq;
 int mod;
@@ -26,7 +26,7 @@ int pat;
 int initialTime;
 int interval=300;
 int play;
-int sensorVal = 0;
+//int sensorVal = 0;
 
 OscP5 osc;
 NetAddress myIp;
@@ -117,8 +117,8 @@ void setup() {
      .activateBy(ControlP5.RELEASE)
      ;
      
-   String portName = "COM4";
-   myPort = new Serial(this,portName, 9600);
+   //String portName = "COM4";
+   //myPort = new Serial(this,portName, 9600);
 }
 
 // Object which submits the textbox entries if the button is on
