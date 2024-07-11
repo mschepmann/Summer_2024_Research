@@ -139,19 +139,15 @@ void controlEvent(ControlEvent theEvent) {
   if (theEvent.isAssignableFrom(Textfield.class)) {
     if (theEvent.getName().equals("Amp. Input")) {
       amp = float(theEvent.getStringValue());
-      println(amp);
     }
     else if (theEvent.getName().equals("Freq. Input")) {
       frq = int(theEvent.getStringValue());
-      println(frq);
     }
     else if (theEvent.getName().equals("Mod. Input")) {
       mod = int(theEvent.getStringValue());
-      println(mod);
     }
     else if (theEvent.getName().equals("Pat. Input")) {
       pat = int(theEvent.getStringValue());
-      println(pat);
     }
   }
 }
