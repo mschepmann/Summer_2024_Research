@@ -11,7 +11,7 @@ int initialTime;
 int dataCounter;
 int dur;
 int stringCount = 0;
-int amplitude;
+float amplitude;
 int frequency;
 int modulation;
 int pattern;
@@ -23,6 +23,7 @@ bool nameFile;
 
 String strs[10];
 String duration;
+String amp;
 
 sensors_event_t event;
 
@@ -59,6 +60,7 @@ void loop(void) {
 
   while (Serial.available() > 0 && dataCounter == -10) {
     String message = Serial.readStringUntil("\r");
+    stringCount = 0;
     while (message.length() > 0) {
       int index = message.indexOf(" ");
       if (index == -1) {
@@ -72,7 +74,7 @@ void loop(void) {
     }
 
     duration = strs[0];
-    amplitude = (strs[2]).toInt();
+    amplitude = (strs[2]).toFloat();
     modulation = (strs[3]).toInt();
     frequency = (strs[1]).toInt();
     pattern = (strs[4]).toInt();
@@ -84,6 +86,14 @@ void loop(void) {
       frequency = 8;
     }
 
+    if (amplitude == 0.1) {
+      amp = "L";
+    }
+    else {
+      amp = "H";
+    }
+    
+    Serial.println(message);
     Serial.println(duration);
     Serial.println(amplitude);
     Serial.println(modulation);
@@ -91,7 +101,7 @@ void loop(void) {
     Serial.println(pattern);
 
     if (duration == "2500" || duration == "2550") {
-      dur = message.toInt();
+      dur = duration.toInt();
       dataCounter = 0; // empty the array from previous times
       dataCollected = false; // to mark that you are not yet done with collection
       startDataCollection = true; // to know it’s time to begin the process
@@ -100,7 +110,7 @@ void loop(void) {
   }
 
   if (nameFile) {
-    mainFile = SD.open(String(frequency) + String(amplitude) + String(modulation) + iter + ".csv", FILE_WRITE);
+    mainFile = SD.open(String(frequency) + String(amp) + String(modulation) + ".csv", FILE_WRITE);
     iter++; //
     if (!mainFile) {
       Serial.println("Failed to open mainFile for writing");
@@ -136,5 +146,7 @@ void loop(void) {
     Serial.println("end");
     dataCollected = false; // to stop from resending
     dataCounter = -10;
+
+    //String(frequency) + String(amplitude) + String(modulation) + String(iter) +
   }
 }

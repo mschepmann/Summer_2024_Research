@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 35.0, 85.0, 571.0, 913.0 ],
+		"rect" : [ 35.0, 82.0, 698.0, 795.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,20 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"format" : 6,
+					"id" : "obj-40",
+					"maxclass" : "flonum",
+					"numdecimalplaces" : 2,
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 23.80000102519989, 208.0, 50.0, 22.0 ]
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-11",
 					"maxclass" : "newobj",
@@ -7004,7 +7018,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 23.80000102519989, 216.0, 50.0, 22.0 ]
+					"patching_rect" : [ 20.0, 143.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -7086,7 +7100,7 @@
 					"numinlets" : 6,
 					"numoutlets" : 6,
 					"outlettype" : [ "", "", "", "", "", "" ],
-					"patching_rect" : [ 103.0, 104.0, 160.0, 22.0 ],
+					"patching_rect" : [ 103.0, 95.0, 160.0, 22.0 ],
 					"text" : "route amp frq mod pat mode"
 				}
 
@@ -7170,7 +7184,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-6", 0 ],
+					"destination" : [ "obj-40", 0 ],
 					"source" : [ "obj-16", 0 ]
 				}
 
@@ -7494,6 +7508,13 @@
 					"destination" : [ "obj-99", 2 ],
 					"order" : 2,
 					"source" : [ "obj-39", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-40", 0 ]
 				}
 
 			}
