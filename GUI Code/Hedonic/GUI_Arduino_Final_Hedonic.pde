@@ -21,9 +21,7 @@ String val4;
 String val;
 String list;
 String data;
-
 float amp;
-
 int frq;
 int mod;
 int pat;
@@ -118,7 +116,7 @@ void setup() {
      .activateBy(ControlP5.RELEASE)
      ;
      
-   myPort = new Serial(this,"COM4", 115200);
+   myPort = new Serial(this,"COM4", 9600);
    myPort.bufferUntil('\n');
 }
 
@@ -139,19 +137,15 @@ void controlEvent(ControlEvent theEvent) {
   if (theEvent.isAssignableFrom(Textfield.class)) {
     if (theEvent.getName().equals("Amp. Input")) {
       amp = float(theEvent.getStringValue());
-      println(amp);
     }
     else if (theEvent.getName().equals("Freq. Input")) {
       frq = int(theEvent.getStringValue());
-      println(frq);
     }
     else if (theEvent.getName().equals("Mod. Input")) {
       mod = int(theEvent.getStringValue());
-      println(mod);
     }
     else if (theEvent.getName().equals("Pat. Input")) {
       pat = int(theEvent.getStringValue());
-      println(pat);
     }
   }
 }
@@ -203,9 +197,16 @@ void setArduinoDuration() {
      case 8:
        dur = 2550;
        break;
+     case 9:
+       dur = 2550;
+       break;
+     case 10:
+       dur = 2550;
+       break;
  }
  
- myPort.write(str(dur));
+ myPort.write(str(dur) + " " + str(frq) + " " + str(amp) + " " + str(mod) + " " + str(pat));
+ println(str(dur) + " " + str(frq) + " " + str(amp) + " " + str(mod) + " " + str(pat));
 }
 
 void draw() {
@@ -227,12 +228,9 @@ void serialEvent(Serial myPort) {
   println("Received from Arduino: " + list); // Debugging
   
   if (list != null) {
-    data += list;
+    //data += list;
     
     if (list.contains("end")) {
-      String[] lines = data.split("\n");
-      lines = shorten(lines);
-      saveStrings("C:/Users/mssch/Downloads/Hedonic_Pattern_" + str(pat) + ".csv", lines);
       println("CSV saved."); // Debugging
       data="";
     }
