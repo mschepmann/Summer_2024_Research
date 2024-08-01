@@ -21,9 +21,7 @@ String val4;
 String val;
 String list;
 String data;
-
 float amp;
-
 int frq;
 int mod;
 int pat;
@@ -207,7 +205,8 @@ void setArduinoDuration() {
        break;
  }
  
- myPort.write(str(dur));
+ myPort.write(str(dur) + " " + str(frq) + " " + str(amp) + " " + str(mod) + " " + str(pat));
+ println(str(dur) + " " + str(frq) + " " + str(amp) + " " + str(mod) + " " + str(pat));
 }
 
 void draw() {
@@ -229,12 +228,9 @@ void serialEvent(Serial myPort) {
   println("Received from Arduino: " + list); // Debugging
   
   if (list != null) {
-    data += list;
+    //data += list;
     
     if (list.contains("end")) {
-      String[] lines = data.split("\n");
-      lines = shorten(lines);
-      saveStrings("C:/Users/mssch/Downloads/Motion_Pattern_" + str(pat) + ".csv", lines);
       println("CSV saved."); // Debugging
       data="";
     }
