@@ -171,37 +171,37 @@ void sendInputsToMax() {
 void setArduinoDuration() {
    switch(pat) {
      case 0:
-       dur = 2500;
+       dur = 3500;
        break;
      case 1:
-       dur = 2550;
+       dur = 3550;
        break;
      case 2:
-       dur = 2550;
+       dur = 3550;
        break;
      case 3:
-       dur = 2550;
+       dur = 3550;
        break;
      case 4:
-       dur = 2550;
+       dur = 3550;
        break;
      case 5:
-       dur = 2550;
+       dur = 3550;
        break;
      case 6:
-       dur = 2550;
+       dur = 3550;
        break;
      case 7:
-       dur = 2550;
+       dur = 3550;
        break;
      case 8:
-       dur = 2550;
+       dur = 3550;
        break;
      case 9:
-       dur = 2550;
+       dur = 3550;
        break;
      case 10:
-       dur = 2550;
+       dur = 3550;
        break;
  }
  

@@ -48,10 +48,10 @@ void setup(void) {
   nameFile = false;
 
   /* Set the range to whatever is appropriate for your project */
-  accel.setRange(ADXL345_RANGE_16_G);
+  // accel.setRange(ADXL345_RANGE_16_G);
   // accel.setRange(ADXL345_RANGE_8_G);
   // accel.setRange(ADXL345_RANGE_4_G);
-  // accel.setRange(ADXL345_RANGE_2_G);
+  accel.setRange(ADXL345_RANGE_2_G);
 }
 
 void loop(void) {
@@ -100,7 +100,7 @@ void loop(void) {
     Serial.println(frequency);
     Serial.println(pattern);
 
-    if (duration == "2500" || duration == "2550") {
+    if (duration == "3500" || duration == "3550") {
       dur = duration.toInt();
       dataCounter = 0; // empty the array from previous times
       dataCollected = false; // to mark that you are not yet done with collection

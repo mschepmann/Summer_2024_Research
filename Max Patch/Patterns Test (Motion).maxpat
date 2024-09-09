@@ -60,7 +60,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"patching_rect" : [ 786.0, 185.0, 67.0, 22.0 ],
-					"text" : "delay 1000"
+					"text" : "delay 1500"
 				}
 
 			}
@@ -72,7 +72,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"patching_rect" : [ 798.0, 118.0, 67.0, 22.0 ],
-					"text" : "delay 1000"
+					"text" : "delay 1500"
 				}
 
 			}
@@ -6355,7 +6355,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"patching_rect" : [ 633.0, 284.0, 67.0, 22.0 ],
-					"text" : "delay 1000"
+					"text" : "delay 1500"
 				}
 
 			}
