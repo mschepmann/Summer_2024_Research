@@ -116,7 +116,7 @@ void setup() {
      .activateBy(ControlP5.RELEASE)
      ;
      
-   myPort = new Serial(this,"COM4", 9600);
+   myPort = new Serial(this,"COM4", 115200);
    myPort.bufferUntil('\n');
 }
 
