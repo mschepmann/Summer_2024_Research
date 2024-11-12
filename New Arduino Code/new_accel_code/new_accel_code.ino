@@ -90,7 +90,7 @@ void loop(void) {
       frequency = 8;
     }
 
-    if (amplitude == 0.1) {
+    if (amplitude == 0.177) {
       amp = "L";
     }
     else {
