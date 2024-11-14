@@ -1,3 +1,4 @@
+// import libraries
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_LSM6DS3TRC.h>
@@ -5,6 +6,7 @@
 #include <SPI.h>
 #include <SD.h>
 
+// initializa variables
 File mainFile;
 
 int initialTime;
@@ -25,6 +27,7 @@ String strs[10];
 String duration;
 String amp;
 
+// Initialize constructor
 sensors_event_t accelEvent;
 
 /* Assign a unique ID to this sensor at the same time */
@@ -39,7 +42,7 @@ void setup(void) {
   }
 
   if (!SD.begin(10)) {
-    Serial.println("Failed to initialize SD Card");
+    Serial.println("Failed to initialize SD Card"); // check if sd card is there
     return;
   }
 
