@@ -107,7 +107,7 @@ void loop(void) {
     Serial.println(frequency);
     Serial.println(pattern);
 
-    if (duration == "3500" || duration == "3550") {
+    if (duration >= "3500") {
       dur = duration.toInt();
       dataCounter = 0; // empty the array from previous times
       dataCollected = false; // to mark that you are not yet done with collection
