@@ -117,7 +117,7 @@ void loop(void) {
   }
 
   if (nameFile) {
-    mainFile = SD.open(String(frequency) + String(amp) + String(modulation) + ".csv", FILE_WRITE);
+    mainFile = SD.open(String(frequency) + String(amp) + String(modulation) + "_" + String(pattern) + ".csv", FILE_WRITE);
     iter++; //
     if (!mainFile) {
       Serial.println("Failed to open mainFile for writing");
