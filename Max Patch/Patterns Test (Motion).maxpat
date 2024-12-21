@@ -852,7 +852,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 428.0, 619.0, 45.0, 22.0 ],
-					"text" : "dac~ 6"
+					"text" : "dac~ 4"
 				}
 
 			}
